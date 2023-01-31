@@ -13,7 +13,7 @@ struct SplashView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Welcome to IForgot")
+            Text("Welcome to IForgot we forgot")
         }
         .padding()
     }
