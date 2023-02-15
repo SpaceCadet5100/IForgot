@@ -94,10 +94,10 @@
 		89C2423D29893418009BCB3D /* IForgot */ = {
 			isa = PBXGroup;
 			children = (
+				BC88FEE0299CCFFD0045E337 /* resources */,
 				89C2426A298934F1009BCB3D /* Controllers */,
 				89C24269298934D3009BCB3D /* Models */,
 				89C242682989345F009BCB3D /* Views */,
-				89C2424229893419009BCB3D /* Assets.xcassets */,
 				89C2424429893419009BCB3D /* Preview Content */,
 			);
 			path = IForgot;
@@ -149,6 +149,14 @@
 				89C2423E29893418009BCB3D /* IForgotApp.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BC88FEE0299CCFFD0045E337 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				89C2424229893419009BCB3D /* Assets.xcassets */,
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
