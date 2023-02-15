@@ -23,8 +23,8 @@ struct SplashView: View {
                                 }
                             }
                 .padding()
-            Text("loading our application")
         }
+        
     }
     
     struct ContentView_Previews: PreviewProvider {

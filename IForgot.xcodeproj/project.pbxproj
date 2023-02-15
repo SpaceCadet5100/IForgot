@@ -14,6 +14,8 @@
 		89C2425029893419009BCB3D /* IForgotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2424F29893419009BCB3D /* IForgotTests.swift */; };
 		89C2425A29893419009BCB3D /* IForgotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2425929893419009BCB3D /* IForgotUITests.swift */; };
 		89C2425C29893419009BCB3D /* IForgotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2425B29893419009BCB3D /* IForgotUITestsLaunchTests.swift */; };
+		BC88FEE8299CD8850045E337 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88FEE7299CD8850045E337 /* DetailView.swift */; };
+		BC88FEEF299CDED60045E337 /* NasaAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88FEEE299CDED60045E337 /* NasaAPIModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		89C2425529893419009BCB3D /* IForgotUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IForgotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C2425929893419009BCB3D /* IForgotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IForgotUITests.swift; sourceTree = "<group>"; };
 		89C2425B29893419009BCB3D /* IForgotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IForgotUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BC88FEE7299CD8850045E337 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		BC88FEEE299CDED60045E337 /* NasaAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaAPIModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				BC88FEE0299CCFFD0045E337 /* resources */,
-				89C2426A298934F1009BCB3D /* Controllers */,
 				89C24269298934D3009BCB3D /* Models */,
 				89C242682989345F009BCB3D /* Views */,
 				89C2424429893419009BCB3D /* Preview Content */,
@@ -132,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				89C2424029893418009BCB3D /* SplashView.swift */,
+				BC88FEE7299CD8850045E337 /* DetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -139,6 +143,7 @@
 		89C24269298934D3009BCB3D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BC88FEEE299CDED60045E337 /* NasaAPIModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		BC88FEE0299CCFFD0045E337 /* resources */ = {
 			isa = PBXGroup;
 			children = (
+				89C2426A298934F1009BCB3D /* Controllers */,
 				89C2424229893419009BCB3D /* Assets.xcassets */,
 			);
 			path = resources;
@@ -290,7 +296,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C2424129893418009BCB3D /* SplashView.swift in Sources */,
+				BC88FEE8299CD8850045E337 /* DetailView.swift in Sources */,
 				89C2423F29893418009BCB3D /* IForgotApp.swift in Sources */,
+				BC88FEEF299CDED60045E337 /* NasaAPIModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
