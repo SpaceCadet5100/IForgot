@@ -13,6 +13,7 @@ struct ContentView: View {
     var body: some View {
         Text("AAAA")
             .task {
+                print("Do your goddam job")
                 await LoadData()
             }
     }
@@ -25,7 +26,8 @@ struct ContentView: View {
             let (data, _) = try await URLSession.shared.data(from: url)
                 if let decodedResponse = try? JSONDecoder().decode(Response.self, from:  data){
                     results = decodedResponse.NasaAPIModels
-                    print(results)	
+                    print(results)
+                    print("BLALALA")
                 }
                 
         }
