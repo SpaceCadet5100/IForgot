@@ -6,8 +6,14 @@
 //
 
 import Foundation
-var apiKey = "instertkey"
-var apiString = "JSONstring"
+
+
+struct Response:Codable{
+    var NasaAPIModels:[NasaAPIModel]
+}
+var apiKey = "itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao"
+var apiString = ""
+
 struct NasaAPIModel:Codable{
     var copyright, date, explanation: String
     var hdurl: String
@@ -21,3 +27,5 @@ struct NasaAPIModel:Codable{
         case title, url
     }
 }
+
+
