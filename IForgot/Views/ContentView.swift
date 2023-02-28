@@ -9,12 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State var response: NasaAPIModel?
-    
     var body: some View {
         self.saveResponse()
         return VStack{
             NasaList().onAppear{
                 tryLoadDataForToday()
+            
+                UserDefaults.standard.set(nasaDatas, forKey: "nasa")
             }
             
             HStack{
@@ -55,7 +56,7 @@ struct ContentView: View {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date)
         
-        let hasTodaysData = nasaDatas.contains (where: { $0.id == dateString })
+        let hasTodaysData = nasaDatas.  contains (where: { $0.id == dateString })
         
         if (!hasTodaysData){
             LoadData(todaysDate: true)
@@ -68,6 +69,9 @@ struct ContentView: View {
         }
         return
     }
+    
+    
+
 
     func LoadData(todaysDate: Bool? = false) {
         
