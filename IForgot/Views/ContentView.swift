@@ -1,56 +1,89 @@
+//
+//  ContentView.swift
+//  IForgot
+//
+//  Created by Marijn van den Bos on 15/02/2023.
+//
 import SwiftUI
 
 
 struct ContentView: View {
     @State var results = [NasaAPIModel]();
     @State var nasaData: NasaAPIModel?
-    
     var body: some View {
-        VStack{
-        Text("a")
-        }.onAppear(perform: LoadData)
+        Text(getString()).onAppear(perform: LoadData)
     }
-     
+    
+    func getString() -> String{
+        var string = "Not found lol"
+        if let nasaData = nasaData {
+            string = nasaData.url
+        }
+        return string
+    }
     
     func LoadData() {
-        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=5") else {
+        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao") else {
             print("Invalid url")
             return
         }
+        
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request)
         {
             data, response, error in
-            var newResults = results
+            
             if let error = error {
                 print("Error: fetch failed: \(error.localizedDescription)")
                 return
             }
-         
+            
             guard let data = data else {
                 print("ERROR: failed to get data form URLSession")
                 return
             }
+            
+            var newNasaData: [NasaAPIModel]?
             do {
-                newResults = try JSONDecoder().decode([NasaAPIModel].self, from:data)
-                print(newResults[0].url)
+                newNasaData = try JSONDecoder().decode([NasaAPIModel].self, from:data)
             }
-            catch{
-                print("woopsie")
+            
+            catch let error as NSError{
+                print("woopsie \(error.domain), description= \(error.localizedDescription)")
             }
+            
+            catch DecodingError.keyNotFound(let key, let context){
+                print("Error: could not find key \(key) in JSON \(context.debugDescription)")
+            }
+            catch DecodingError.valueNotFound(let type, let context){
+                print("Error: could not find type \(type) in JSON: \(context.debugDescription)")
+            }
+            catch DecodingError.typeMismatch(let type, let context){
+                print("Error: type mismatch for typ \(type) in JSON: \(context.debugDescription)")
+            }
+            catch DecodingError.dataCorrupted(let context){
+                print("ERROR: data found to be corrupted in JSON \(context.debugDescription)")
+            }
+            if newNasaData == nil {
+                print("woopsie failed to read or decode the data")
+                return
+            }
+            
             DispatchQueue.main.async {
-            self.results = newResults
+                self.results = newNasaData
 
             }
+            
         }
+        
         task.resume()
-    }
     
-    
-    
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
         }
+}
+
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
