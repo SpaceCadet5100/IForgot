@@ -13,26 +13,26 @@ struct ContentView: View {
     var body: some View {
         Text(getString()).onAppear(perform: LoadData)
     }
-    
+
     func getString() -> String{
         var string = "Not found lol"
-        if let nasaData = results {
-            string = nasaData[0].url
+        if let nasaData = nasaData {
+            string = nasaData.url
         }
         return string
     }
-    
+
     func LoadData() {
         guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao") else {
             print("Invalid url")
             return
         }
-        
+
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request)
         {
             data, response, error in
-            
+
             if let error = error {
                 print("Error: fetch failed: \(error.localizedDescription)")
                 return
@@ -42,16 +42,16 @@ struct ContentView: View {
                 print("ERROR: failed to get data form URLSession")
                 return
             }
-            
-            var newNasaData: [NasaAPIModel]?
+
+            var newNasaData: NasaAPIModel?
             do {
-                newNasaData = try JSONDecoder().decode([NasaAPIModel].self, from:data)
+                newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from:data)
             }
-            
+
             catch let error as NSError{
                 print("woopsie \(error.domain), description= \(error.localizedDescription)")
             }
-            
+
             catch DecodingError.keyNotFound(let key, let context){
                 print("Error: could not find key \(key) in JSON \(context.debugDescription)")
             }
@@ -68,22 +68,14 @@ struct ContentView: View {
                 print("woopsie failed to read or decode the data")
                 return
             }
-            
-            DispatchQueue.main.async {
-                if let value = newNasaData{
-                    self.results = value
-                }
-                else{
-                    print("value be nill")
-                }
-            
 
-            }
-            
+            DispatchQueue.main.async {
+                            self.nasaData = newNasaData
+                        }
         }
-        
+
         task.resume()
-    
+
         }
 }
 
