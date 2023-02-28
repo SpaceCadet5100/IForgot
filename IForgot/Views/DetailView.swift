@@ -12,23 +12,21 @@ import WrappingHStack
 import AVFoundation
     
 struct DetailView: View {
-    let speacker = AVSpeechSynthesizer()
+    let speechSynthesizer = AVSpeechSynthesizer()
     let  nasaAPIModel:NasaAPIModel
     var body: some View {
        
         ScrollView {
             VStack{
                 Button("read the text out loud"){
-                    let voices = AVSpeechSynthesisVoice.speechVoices()
-                    if(voices.count==0){
-                        print("godverdomme")
+                    if(speechSynthesizer.isSpeaking){
+                        speechSynthesizer.stopSpeaking(at: .immediate)
                     }
-                    for szVoice in voices {
-                      print(szVoice)
-                    }
-
-
-                    
+                    let utterance = AVSpeechUtterance(string:  nasaAPIModel.explanation)
+                    utterance.pitchMultiplier = 1.0
+                    utterance.rate = 0.5
+                    utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                    speechSynthesizer.speak(utterance)
                 }
                 Text(nasaAPIModel.title)
                     .font(.system(size: 60))
