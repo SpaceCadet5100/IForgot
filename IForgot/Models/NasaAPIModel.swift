@@ -13,15 +13,14 @@ var apiString = ""
 
 var nasaDatas = [NasaAPIModel]()
 
-struct NasaAPIModel: Codable{
-    var copyright, date, explanation: String
+struct NasaAPIModel: Hashable, Codable{
+    var date, explanation: String
     var hdurl: String
     var mediaType, serviceVersion, title: String
     var url: String
     
     enum CodingKeys: String, CodingKey {
-        case copyright,
-             date,
+        case date,
              explanation,
              hdurl
         case mediaType = "media_type"
