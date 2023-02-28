@@ -19,14 +19,21 @@ struct DetailView: View {
         ScrollView {
             VStack{
                 Button("read the text out loud"){
-                    if(speechSynthesizer.isSpeaking){
-                        speechSynthesizer.stopSpeaking(at: .immediate)
-                    }
+                   
                     let utterance = AVSpeechUtterance(string:  nasaAPIModel.explanation)
                     utterance.pitchMultiplier = 1.0
                     utterance.rate = 0.5
                     utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
                     speechSynthesizer.speak(utterance)
+                    
+                    if(speechSynthesizer.isSpeaking){
+                        speechSynthesizer.pauseSpeaking(at: .immediate)
+                      
+                    }
+                    if(speechSynthesizer.isPaused){
+                        speechSynthesizer.continueSpeaking()
+                        
+                    }
                 }
                 Text(nasaAPIModel.title)
                     .font(.system(size: 60))
