@@ -12,7 +12,6 @@ import WrappingHStack
 struct DetailView: View {
     let  nasaAPIModel:NasaAPIModel
     var body: some View {
-
         ScrollView {
             VStack{
                 Text(nasaAPIModel.title)

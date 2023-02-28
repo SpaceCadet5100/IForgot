@@ -28,7 +28,8 @@ struct ContentView: View {
     }
 
     func LoadData() {
-        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao") else {
+        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=1") else {
+            
             print("Invalid url")
             return
         }
@@ -50,7 +51,7 @@ struct ContentView: View {
             
             var newNasaData: NasaAPIModel?
             do {
-                newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from: data)
+                newNasaData = try JSONDecoder().decode([NasaAPIModel].self, from: data)
 
             }
 
