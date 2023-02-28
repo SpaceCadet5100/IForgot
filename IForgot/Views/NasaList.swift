@@ -20,7 +20,7 @@ struct NasaList: View {
                         id: \NasaAPIModel.date) {
                     nasaData in
                     NavigationLink(
-                        destination: DetailView()
+                        destination: DetailView(nasaAPIModel: nasaData)
                     )
                     {
                         Text(nasaData.date)
