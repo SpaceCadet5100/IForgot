@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct NasaList: View {
-
     
+    @State var data = nasaDatas
+
     var body: some View {
+        
+        
         NavigationView{
-            
+            List {
+                ForEach(nasaDatas,
+                        id: \NasaAPIModel.date) {
+                    nasaData in
+                    NavigationLink(
+                        destination: DetailView(nasaAPIModel: nasaData)
+                    )
+                    {
+                        Text(nasaData.date)
+                    }
+                }
+            }
+            .overlay(Group {
+                           if nasaDatas.isEmpty {
+                               SplashView()
+                           }
+                       })
+            .navigationTitle("Entries")
         }
        
     }

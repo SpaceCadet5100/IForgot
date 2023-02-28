@@ -25,6 +25,7 @@ struct DetailView: View {
                     .fixedSize(horizontal: false, vertical: true)
                 Text("The copyright goes out towards: \(nasaAPIModel.copyright)")
                     .font(.system(size: 16))
+
                     .padding(3)
                     .fixedSize(horizontal: false, vertical: true)
                 Text("This picture was taken on: \(nasaAPIModel.date)")
@@ -32,13 +33,15 @@ struct DetailView: View {
                   
                 Text("The service number of this photo is: \(nasaAPIModel.serviceVersion)")
                     .font(.system(size: 16))
-                    
+                
             }.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height + 500) }
+
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
+
         DetailView(nasaAPIModel:NasaAPIModel(
             copyright: "Marijn van den Bos en Jedrek Dawidek",
             date: "2010-09-19",
@@ -49,5 +52,6 @@ struct DetailView_Previews: PreviewProvider {
             title: "Seyfert's",
             url: "https://apod.nasa.gov/apod/image/0301/sextet_hst_c1.jpg"
         ))
+
     }
 }
