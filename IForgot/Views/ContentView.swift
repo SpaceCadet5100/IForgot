@@ -17,6 +17,22 @@ struct ContentView: View {
         self.saveResponse()
         return VStack{
             NasaList().onAppear(perform: LoadData)
+            
+            Button("Set Reminder") {
+                let content = UNMutableNotificationContent()
+                content.title = "New daily photo uploaded"
+                content.subtitle = "Specialy for you in the Iforgetapp \(NSFullUserName())"
+                content.sound = UNNotificationSound.default
+
+                // show this notification five seconds from now
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+
+                // choose a random identifier
+                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+
+                // add our notification request
+                UNUserNotificationCenter.current().add(request)
+                }
         }
     }
 
@@ -28,8 +44,7 @@ struct ContentView: View {
     }
 
     func LoadData() {
-        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=1") else {
-            
+        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao") else {
             print("Invalid url")
             return
         }
@@ -51,7 +66,7 @@ struct ContentView: View {
             
             var newNasaData: NasaAPIModel?
             do {
-                newNasaData = try JSONDecoder().decode([NasaAPIModel].self, from: data)
+                newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from: data)
 
             }
 
