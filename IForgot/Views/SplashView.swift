@@ -6,11 +6,22 @@
 //
 
 import SwiftUI
-
+import UserNotifications
 struct SplashView: View {
     @State private var isRotating = 0.0
+    
     var body: some View {
         VStack {
+            Button("Notification permission") {
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                    
+                        print("All set!")
+                    } else if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }                }
+    
             Text("loading our application")
             Image("loading")
                 .imageScale(.small)
@@ -24,6 +35,7 @@ struct SplashView: View {
                             }
                 .padding()
         }
+        
         
     }
     
