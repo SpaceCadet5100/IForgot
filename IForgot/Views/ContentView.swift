@@ -44,14 +44,19 @@ struct ContentView: View {
                 return
             }
             
-            guard let data = data else {
+            guard var data = data else {
                 print("ERROR: failed to get data form URLSession")
                 return
             }
             
+            if (data.count > 3 ){
+                data.remove(at: data.count - 2)
+                data.removeFirst()
+            }
+
             var newNasaData: NasaAPIModel?
             do {
-                newNasaData = try JSONDecoder().decode([NasaAPIModel].self, from: data)
+                newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from: data)
 
             }
 
