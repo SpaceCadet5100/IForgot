@@ -8,11 +8,10 @@
 import Foundation
 
 
-struct Response:Codable{
-    var NasaAPIModels:[NasaAPIModel]
-}
 var apiKey = "itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao"
 var apiString = ""
+
+var nasaDatas = [NasaAPIModel]()
 
 struct NasaAPIModel:Codable{
     var copyright, date, explanation: String

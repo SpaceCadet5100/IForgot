@@ -8,16 +8,17 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var results = [NasaAPIModel]();
-    @State var nasaData: NasaAPIModel?
+    @State var response: NasaAPIModel?
+    
     var body: some View {
         Text(getString()).onAppear(perform: LoadData)
     }
     
     func getString() -> String{
         var string = "Not found lol"
-        if let nasaData = results {
-            string = nasaData[0].url
+        if let response = response {
+            nasaDatas.append(response)
+            string = "GOT IT"
         }
         return string
     }
@@ -43,13 +44,13 @@ struct ContentView: View {
                 return
             }
             
-            var newNasaData: [NasaAPIModel]?
+            var newNasaData: NasaAPIModel?
             do {
-                newNasaData = try JSONDecoder().decode([NasaAPIModel].self, from:data)
+                newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from: data)
             }
             
             catch let error as NSError{
-                print("woopsie \(error.domain), description= \(error.localizedDescription)")
+                print("Error: \(error.domain), description= \(error.localizedDescription)")
             }
             
             catch DecodingError.keyNotFound(let key, let context){
@@ -62,22 +63,16 @@ struct ContentView: View {
                 print("Error: type mismatch for typ \(type) in JSON: \(context.debugDescription)")
             }
             catch DecodingError.dataCorrupted(let context){
-                print("ERROR: data found to be corrupted in JSON \(context.debugDescription)")
+                print("Error: data found to be corrupted in JSON \(context.debugDescription)")
             }
             if newNasaData == nil {
-                print("woopsie failed to read or decode the data")
+                print("Error: failed to read or decode the data")
                 return
             }
             
             DispatchQueue.main.async {
-                if let value = newNasaData{
-                    self.results = value
-                }
-                else{
-                    print("value be nill")
-                }
-            
-
+                //self.results.append(newNasaData ?? default value)
+                self.response = newNasaData
             }
             
         }
