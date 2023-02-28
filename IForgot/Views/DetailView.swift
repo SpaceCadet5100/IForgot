@@ -9,11 +9,27 @@
 import SwiftUI
 import MapKit
 import WrappingHStack
+import AVFoundation
+    
 struct DetailView: View {
+    let speacker = AVSpeechSynthesizer()
     let  nasaAPIModel:NasaAPIModel
     var body: some View {
+       
         ScrollView {
             VStack{
+                Button("read the text out loud"){
+                    let voices = AVSpeechSynthesisVoice.speechVoices()
+                    if(voices.count==0){
+                        print("godverdomme")
+                    }
+                    for szVoice in voices {
+                      print(szVoice)
+                    }
+
+
+                    
+                }
                 Text(nasaAPIModel.title)
                     .font(.system(size: 60))
                     .padding(20)
