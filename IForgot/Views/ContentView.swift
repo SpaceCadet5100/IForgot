@@ -8,19 +8,23 @@ import SwiftUI
 
 
 struct ContentView: View {
+    
+ 
+    
     @State var response: NasaAPIModel?
     
     var body: some View {
-        Text(getString()).onAppear(perform: LoadData)
+        self.saveResponse()
+        return VStack{
+            NasaList().onAppear(perform: LoadData)
+        }
     }
 
-    func getString() -> String{
-        var string = "Not found lol"
+    func saveResponse() {
         if let response = response {
             nasaDatas.append(response)
-            string = "GOT IT"
         }
-        return string
+        return
     }
 
     func LoadData() {
@@ -74,9 +78,9 @@ struct ContentView: View {
             DispatchQueue.main.async {
                 //self.results.append(newNasaData ?? default value)
                 self.response = newNasaData
+                
+                
             }
-            
-
         }
 
         task.resume()
@@ -87,6 +91,9 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+
+
         ContentView()
+
     }
 }

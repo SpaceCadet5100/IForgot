@@ -10,10 +10,10 @@ import SwiftUI
 import MapKit
 struct DetailView: View {
     var body: some View {
-        var nasaAPIModel:nasaDatas
+        //var nasaAPIModel:nasaDatas
         ScrollView {
             VStack{
-                Text(nasaAPIModel.title)
+                /*    Text(nasaAPIModel.title)
                     .font(.system(size: 60))
                     .padding(20)
                 AsyncImage(url: URL(string: nasaAPIModel.url))
@@ -22,13 +22,14 @@ struct DetailView: View {
                     .padding(20)
                 Text(nasaAPIModel.copyright)
                     .font(.system(size: 16))
-                    .padding(20)
+                    .padding(20) */
             }}
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(nasaAPIModel:nasaDatas[0])
+      //  DetailView(nasaAPIModel:nasaDatas[0])
+        DetailView()
     }
 }

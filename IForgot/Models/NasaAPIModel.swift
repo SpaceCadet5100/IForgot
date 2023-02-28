@@ -13,7 +13,7 @@ var apiString = ""
 
 var nasaDatas = [NasaAPIModel]()
 
-struct NasaAPIModel:Codable{
+struct NasaAPIModel: Codable{
     var copyright, date, explanation: String
     var hdurl: String
     var mediaType, serviceVersion, title: String
@@ -29,7 +29,6 @@ struct NasaAPIModel:Codable{
         case title,
              url
     }
-   
 }
 
 
