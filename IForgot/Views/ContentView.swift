@@ -16,8 +16,8 @@ struct ContentView: View {
     
     func getString() -> String{
         var string = "Not found lol"
-        if let nasaData = nasaData {
-            string = nasaData.url
+        if let nasaData = results {
+            string = nasaData[0].url
         }
         return string
     }
@@ -70,7 +70,13 @@ struct ContentView: View {
             }
             
             DispatchQueue.main.async {
-                self.results = newNasaData
+                if let value = newNasaData{
+                    self.results = value
+                }
+                else{
+                    print("value be nill")
+                }
+            
 
             }
             
