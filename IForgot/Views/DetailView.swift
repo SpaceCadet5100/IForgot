@@ -5,23 +5,30 @@
 //  Created by Marijn van den Bos on 15/02/2023.
 //
 
-import SwiftUI
 
+import SwiftUI
+import MapKit
 struct DetailView: View {
     var body: some View {
+        var nasaAPIModel:NasaAPIModel
         ScrollView {
             VStack{
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Text(nasaAPIModel.title)
                     .font(.system(size: 60))
                     .padding(20)
-                Image("loading")
-                Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.")
+                AsyncImage(url: URL(string: nasaAPIModel.url))
+                Text(nasaAPIModel.explanation)
+                    .font(.system(size: 16))
+                    .padding(20)
+                Text(nasaAPIModel.copyright)
+                    .font(.system(size: 16))
+                    .padding(20)
             }}
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(nasaAPIModel:responseList.NasaAPIModels)
     }
 }

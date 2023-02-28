@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         Text(getString()).onAppear(perform: LoadData)
     }
-    
+
     func getString() -> String{
         var string = "Not found lol"
         if let response = response {
@@ -22,18 +22,18 @@ struct ContentView: View {
         }
         return string
     }
-    
+
     func LoadData() {
         guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao") else {
             print("Invalid url")
             return
         }
-        
+
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request)
         {
             data, response, error in
-            
+
             if let error = error {
                 print("Error: fetch failed: \(error.localizedDescription)")
                 return
@@ -47,12 +47,13 @@ struct ContentView: View {
             var newNasaData: NasaAPIModel?
             do {
                 newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from: data)
+
             }
-            
+
             catch let error as NSError{
                 print("Error: \(error.domain), description= \(error.localizedDescription)")
             }
-            
+
             catch DecodingError.keyNotFound(let key, let context){
                 print("Error: could not find key \(key) in JSON \(context.debugDescription)")
             }
@@ -75,10 +76,11 @@ struct ContentView: View {
                 self.response = newNasaData
             }
             
+
         }
-        
+
         task.resume()
-    
+
         }
 }
 
