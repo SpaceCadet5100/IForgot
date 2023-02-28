@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NasaList: View {
 
-    @State var nasaList = responseList
+    
     var body: some View {
         NavigationView{
             

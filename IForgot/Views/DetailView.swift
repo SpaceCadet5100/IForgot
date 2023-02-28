@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 struct DetailView: View {
     var body: some View {
-        var nasaAPIModel:NasaAPIModel
+        var nasaAPIModel:nasaDatas
         ScrollView {
             VStack{
                 Text(nasaAPIModel.title)
@@ -29,6 +29,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(nasaAPIModel:responseList.NasaAPIModels)
+        DetailView(nasaAPIModel:nasaDatas[0])
     }
 }
