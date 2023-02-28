@@ -64,9 +64,13 @@ struct ContentView: View {
                 return
             }
             
-            if (data.count > 3 ){
-                data.remove(at: data.count - 2)
-                data.removeFirst()
+            //UTF8 for left square
+            if let i = data.firstIndex(of: 91) {
+                data.remove(at: i)
+            }
+            //UTF8 for right square
+            if let i = data.lastIndex(of: 93) {
+                data.remove(at: i)
             }
 
             var newNasaData: NasaAPIModel?
