@@ -8,16 +8,13 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
- 
-    
     @State var response: NasaAPIModel?
     
     var body: some View {
         self.saveResponse()
         return VStack{
             NasaList().onAppear{
-                LoadData()
+                tryLoadDataForToday()
             }
             
             HStack{
@@ -51,6 +48,20 @@ struct ContentView: View {
         }
     }
 
+    func tryLoadDataForToday(){
+        //check if todays date exist
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        
+        let hasTodaysData = nasaDatas.contains (where: { $0.id == dateString })
+        
+        if (!hasTodaysData){
+            LoadData(todaysDate: true)
+        }
+    }
+    
     func saveResponse() {
         if let response = response {
             nasaDatas.append(response)
@@ -58,8 +69,13 @@ struct ContentView: View {
         return
     }
 
-    func LoadData(todaysDate: Date? = nil) {
-        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=1") else {
+    func LoadData(todaysDate: Bool? = false) {
+        
+        let todaysDateUnwrapped = todaysDate ?? false
+        
+        let apiString = (todaysDateUnwrapped) ? "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao" : "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=1"
+        
+        guard let url = URL (string: apiString) else {
             print("Invalid url")
             return
         }
