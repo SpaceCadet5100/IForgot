@@ -10,14 +10,21 @@ import SwiftUI
 import MapKit
 import WrappingHStack
 struct DetailView: View {
-    let  nasaAPIModel:NasaAPIModel
+    @State var nasaAPIModel:NasaAPIModel
+    
+    @State private var isPresentingEditView = false
+    
     var body: some View {
         ScrollView {
             VStack{
-                Text(nasaAPIModel.title)
-                    .font(.system(size: 60))
-                    .padding(20)
-                AsyncImage(url: URL(string: nasaAPIModel.url))
+                AsyncImage(url: URL(string: nasaAPIModel.url)){ image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } placeholder: {
+                    ProgressView()
+                }
+
                 Text(nasaAPIModel.explanation)
                     .font(.system(size: 16))
                     .padding(3)
@@ -29,6 +36,52 @@ struct DetailView: View {
                     .font(.system(size: 16))
                 
             }.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height + 500) }
+                .navigationTitle(nasaAPIModel.title)
+                .toolbar {
+                    Button("Edit") {
+                        isPresentingEditView = true
+                        
+                        
+                    }
+
+                 }
+                .sheet(isPresented: $isPresentingEditView) {
+                    
+                    
+                    
+                    
+                    NavigationView {
+                        
+                        DetailEditView(nasaAPIModel: $nasaAPIModel)
+                        
+                            .navigationTitle("Edit")
+                        
+                            .toolbar {
+                                
+                                ToolbarItem(placement: .cancellationAction) {
+                                    
+                                    Button("Cancel") {
+                                        
+                                        isPresentingEditView = false
+                                        
+                                    }
+                                    
+                                }
+                                
+                                ToolbarItem(placement: .confirmationAction) {
+                                    
+                                    Button("Done") {
+                                        
+                                        isPresentingEditView = false
+                                        print(nasaAPIModel.title)
+                                        nasaDatas.insert(nasaAPIModel, at: 1)
+                                    }
+                                    
+                                }
+                                
+                            }
+                    }
+                }
 
     }
 }
@@ -36,15 +89,9 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
 
-        DetailView(nasaAPIModel:NasaAPIModel(
-            date: "2010-09-19",
-            explanation: "This cluster of stars, known as G1, is the brightest globular cluster in the whole Local Group of galaxies. Also called Mayall II, it orbits the center of the largest nearby galaxy: M31.  G1 contains over 300,000 stars and is almost as old as the entire universe.  In fact, observations of this globular star cluster show it to be as old as the oldest of the roughly 250 known globular clusters in our own Milky Way Galaxy.  Two bright foreground stars appear in this image of G1 taken with the orbiting Hubble Space Telescope in July of 1994.  It shows detail in the distant cluster comparable to ground-based telescopic views of globular star clusters in our own Galaxy. ",
-            hdurl: "https://apod.nasa.gov/apod/image/0301/sextet_hst_full.jpg",
-            mediaType: "image",
-            serviceVersion: "v1",
-            title: "Seyfert's",
-            url: "https://apod.nasa.gov/apod/image/0301/sextet_hst_c1.jpg"
-        ))
+        let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
+        //DetailView(nasaAPIModel: .constant(thingToPreview))
+        DetailView(nasaAPIModel: thingToPreview)
 
     }
 }

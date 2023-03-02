@@ -8,13 +8,28 @@
 import SwiftUI
 
 struct DetailEditView: View {
+    @Binding var  nasaAPIModel:NasaAPIModel
+
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Form {
+            
+            
+            Section(header: Text("Title")) {
+                
+                TextField("Title", text: $nasaAPIModel.title)
+                
+            }
+            
+        }
+
     }
 }
 
 struct DetailEditView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailEditView()
+        let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
+          
+        DetailEditView(nasaAPIModel: .constant(thingToPreview))
     }
 }

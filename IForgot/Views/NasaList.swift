@@ -9,8 +9,7 @@ import SwiftUI
 
 struct NasaList: View {
     
-    @State var data = nasaDatas
-
+    @Binding var nasaDatas:[NasaAPIModel]
     var body: some View {
         
         
@@ -26,6 +25,16 @@ struct NasaList: View {
                         Text(nasaData.date)
                     }
                 }
+                        .onMove { from, to in
+                            nasaDatas.move(fromOffsets: from, toOffset: to)
+
+                        }
+                        .onDelete { indexSet in
+                            nasaDatas.remove(atOffsets: indexSet)
+
+                }
+            }.toolbar {
+                           EditButton()
             }
             .overlay(Group {
                            if nasaDatas.isEmpty {
@@ -40,6 +49,9 @@ struct NasaList: View {
 
 struct NasaList_Previews: PreviewProvider {
     static var previews: some View {
-        NasaList()
+        //let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
+        let thingToPreview = [NasaAPIModel]()
+        
+        NasaList(nasaDatas: .constant(thingToPreview))
     }
 }
