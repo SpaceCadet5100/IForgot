@@ -10,7 +10,7 @@ import MapKit
 import WrappingHStack
 struct DetailView: View {
     @State var nasaAPIModel:NasaAPIModel
-    
+  
     @EnvironmentObject var nasaData: Storage
 
     
