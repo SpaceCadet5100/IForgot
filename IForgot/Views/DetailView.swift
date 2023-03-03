@@ -12,6 +12,9 @@ import WrappingHStack
 struct DetailView: View {
     @State var nasaAPIModel:NasaAPIModel
     
+    @EnvironmentObject var nasaData: Storage
+
+    
     @State private var isPresentingEditView = false
     
     var body: some View {
@@ -74,7 +77,7 @@ struct DetailView: View {
                                         
                                         isPresentingEditView = false
                                         print(nasaAPIModel.title)
-                                        nasaDatas.insert(nasaAPIModel, at: 1)
+                                        nasaData.nasaList.insert(nasaAPIModel, at: 1)
                                     }
                                     
                                 }

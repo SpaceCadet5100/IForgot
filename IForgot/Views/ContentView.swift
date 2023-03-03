@@ -9,12 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     @State var response: NasaAPIModel?
-    @State var nasaData = nasaDatas
+    //@State var nasaData = nasaDatas
+    @EnvironmentObject var nasaData: Storage
+    
     var body: some View {
         return VStack{
-            NasaList(nasaDatas: $nasaData).onAppear{
+            NasaList().onAppear{
+                
                 tryLoadDataForToday()
-                UserDefaults.standard.set(nasaDatas, forKey: "nasa")
+                
             }
             
             HStack{
@@ -55,7 +58,7 @@ struct ContentView: View {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: date)
         
-        let hasTodaysData = nasaDatas.contains (where: { $0.id == dateString })
+        let hasTodaysData = nasaData.nasaList.contains (where: { $0.id == dateString })
         
         if (!hasTodaysData){
             LoadData(todaysDate: true)
@@ -64,7 +67,7 @@ struct ContentView: View {
     
     func saveResponse() {
         if let response = response {
-            nasaDatas.append(response)
+            nasaData.nasaList.append(response)
         }
         return
     }
@@ -148,10 +151,14 @@ struct ContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+    
+    static var storage = Storage()
+    
     static var previews: some View {
-
-
+        
+        
         ContentView()
+            .environmentObject(storage)
 
     }
 }

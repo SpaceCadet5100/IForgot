@@ -10,7 +10,7 @@ import Foundation
 var apiKey = "itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao"
 var apiString = ""
 
-var nasaDatas = [NasaAPIModel]()
+//var nasaDatas = [NasaAPIModel]()
 
 struct NasaAPIModel: Hashable, Codable, Identifiable{
     var date, explanation: String
