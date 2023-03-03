@@ -75,8 +75,13 @@ struct DetailView: View {
                                     Button("Done") {
                                         
                                         isPresentingEditView = false
-                                        print(nasaAPIModel.title)
-                                        nasaData.nasaList.insert(nasaAPIModel, at: 1)
+                                        let index = nasaData.nasaList.firstIndex(where: {$0.id == nasaAPIModel.id})
+                                        
+                                        if let unwrappedIndex = index {
+                                            nasaData.nasaList.remove(at: unwrappedIndex)
+                                            nasaData.nasaList.insert(nasaAPIModel, at: unwrappedIndex)
+                                        }
+                                   
                                     }
                                     
                                 }
