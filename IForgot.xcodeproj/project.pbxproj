@@ -16,6 +16,7 @@
 		89C2425A29893419009BCB3D /* IForgotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2425929893419009BCB3D /* IForgotUITests.swift */; };
 		89C2425C29893419009BCB3D /* IForgotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2425B29893419009BCB3D /* IForgotUITestsLaunchTests.swift */; };
 		89D3B6A929B11D37005D5EBD /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D3B6A829B11D37005D5EBD /* DetailEditView.swift */; };
+		BC27BA8129B23347004773CE /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27BA8029B23347004773CE /* settingsView.swift */; };
 		BC88FEE8299CD8850045E337 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88FEE7299CD8850045E337 /* DetailView.swift */; };
 		BC88FEF1299CE5D60045E337 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88FEF0299CE5D60045E337 /* ContentView.swift */; };
 		BCA98AB829AE219F00E5176A /* WrappingHStack in Frameworks */ = {isa = PBXBuildFile; productRef = BCA98AB729AE219F00E5176A /* WrappingHStack */; };
@@ -53,6 +54,7 @@
 		89C2425929893419009BCB3D /* IForgotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IForgotUITests.swift; sourceTree = "<group>"; };
 		89C2425B29893419009BCB3D /* IForgotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IForgotUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89D3B6A829B11D37005D5EBD /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
+		BC27BA8029B23347004773CE /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		BC88FEE7299CD8850045E337 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		BC88FEEE299CDED60045E337 /* NasaAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaAPIModel.swift; sourceTree = "<group>"; };
 		BC88FEF0299CE5D60045E337 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				89D3B6A829B11D37005D5EBD /* DetailEditView.swift */,
 				BC88FEF0299CE5D60045E337 /* ContentView.swift */,
 				BCFC26F929AE0F260007D6A3 /* NasaList.swift */,
+				BC27BA8029B23347004773CE /* settingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC27BA8129B23347004773CE /* settingsView.swift in Sources */,
 				89C2424129893418009BCB3D /* SplashView.swift in Sources */,
 				BC88FEF1299CE5D60045E337 /* ContentView.swift in Sources */,
 				89D3B6A929B11D37005D5EBD /* DetailEditView.swift in Sources */,
