@@ -12,15 +12,6 @@ struct SplashView: View {
     
     var body: some View {
         VStack {
-            Button("Notification permission") {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                    
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }          }
     
             Text("loading our application")
             Image("loading")
