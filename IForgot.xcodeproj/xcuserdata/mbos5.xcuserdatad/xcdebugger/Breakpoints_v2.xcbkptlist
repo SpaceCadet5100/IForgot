@@ -14,8 +14,8 @@
             filePath = "IForgot/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "LoadData(todaysDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -123,42 +123,10 @@
             filePath = "IForgot/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
             landmarkName = "tryLoadDataForToday()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82a00"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IForgot.ContentView.saveResponse() -&gt; ()"
-                  moduleName = "IForgot"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82a00"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IForgot.ContentView.saveResponse() -&gt; ()"
-                  moduleName = "IForgot"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -171,10 +139,10 @@
             filePath = "IForgot/Views/NasaList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "previews"
-            landmarkType = "24">
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "NasaList_Previews"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -187,8 +155,8 @@
             filePath = "IForgot/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "ContentView"
             landmarkType = "14">
          </BreakpointContent>

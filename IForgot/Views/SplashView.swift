@@ -6,41 +6,36 @@
 //
 
 import SwiftUI
-import UserNotifications
+
 struct SplashView: View {
     @State private var isRotating = 0.0
-    
+    // MARK: - Properties
     var body: some View {
+        // MARK: - View
         VStack {
-            Button("Notification permission") {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                    
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
-                    }
-                }          }
-    
+            // A text element that displays a loading message.
             Text("loading our application")
+            // An image element that displays a loading image.
             Image("loading")
                 .imageScale(.small)
                 .foregroundColor(.accentColor)
                 .rotationEffect(.degrees(isRotating))
-                            .onAppear {
-                                withAnimation(.linear(duration: 1)
-                                        .speed(0.1).repeatForever(autoreverses: false)) {
-                                    isRotating = 360.0
-                                }
-                            }
+            
+            // A SwiftUI animation that continuously rotates the image.
+                .onAppear {
+                    withAnimation(.linear(duration: 1)
+                        .speed(0.1).repeatForever(autoreverses: false)) {
+                            isRotating = 360.0
+                        }
+                }
                 .padding()
         }
-        
-        
     }
-    
+
     struct ContentView_Previews: PreviewProvider {
+        // MARK: - Preview
         static var previews: some View {
             SplashView()
         }
-    }}
+    }
+}

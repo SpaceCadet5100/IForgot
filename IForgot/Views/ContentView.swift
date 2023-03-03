@@ -5,8 +5,7 @@
 //  Created by Marijn van den Bos on 15/02/2023.
 //
 import SwiftUI
-
-
+import UserNotifications
 struct ContentView: View {
     @State var response: NasaAPIModel?
     //@State var nasaData = nasaDatas
@@ -29,6 +28,15 @@ struct ContentView: View {
                 }
                 .buttonStyle(.bordered)
                 
+                Button("Notification permission") {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                        
+                            print("All set!")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
+                    }          }.buttonStyle(.bordered)
                 
                 
                 Button("Set Reminder") {

@@ -8,17 +8,35 @@
 import SwiftUI
 import MapKit
 import WrappingHStack
+import AVFoundation
 struct DetailView: View {
     @State var nasaAPIModel:NasaAPIModel
-  
     @EnvironmentObject var nasaData: Storage
-
-    
+    let speechSynthesizer = AVSpeechSynthesizer()
     @State private var isPresentingEditView = false
     
     var body: some View {
         ScrollView {
             VStack{
+                Button("read the text out loud"){
+                                 //make the speach synthesiser talk
+                                  let utterance = AVSpeechUtterance(string:  nasaAPIModel.explanation)
+                                  utterance.pitchMultiplier = 1.0
+                                  utterance.rate = 0.5
+                                  utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+                                  speechSynthesizer.speak(utterance)
+                                  
+                                  if(speechSynthesizer.isSpeaking){
+                                      speechSynthesizer.pauseSpeaking(at: .immediate)
+                                    
+                                  }
+                                  if(speechSynthesizer.isPaused){
+                                      speechSynthesizer.continueSpeaking()
+                                      
+                                  }
+                              }
+                // this loads in a detail view image ASYNC from the rest of the content
+                //to make the loading process not impact the application preformance
                 AsyncImage(url: URL(string: nasaAPIModel.url)){ image in
                     image
                         .resizable()
