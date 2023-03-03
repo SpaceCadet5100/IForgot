@@ -25,7 +25,7 @@ struct DetailEditView: View {
             TextField("version", text: $nasaAPIModel.serviceVersion)}.padding(.horizontal, 16)
             }
     }
-}
+    
 
 struct DetailEditView_Previews: PreviewProvider {
     static var previews: some View {
