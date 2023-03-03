@@ -7,13 +7,12 @@
 
 import Foundation
 
-
 var apiKey = "itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao"
 var apiString = ""
 
-var nasaDatas = [NasaAPIModel]()
+//var nasaDatas = [NasaAPIModel]()
 
-struct NasaAPIModel: Hashable, Codable{
+struct NasaAPIModel: Hashable, Codable, Identifiable{
     var date, explanation: String
     var hdurl: String
     var mediaType, serviceVersion, title: String
@@ -27,6 +26,9 @@ struct NasaAPIModel: Hashable, Codable{
         case serviceVersion = "service_version"
         case title,
              url
+    }
+    var id: String {
+        date
     }
 }
 

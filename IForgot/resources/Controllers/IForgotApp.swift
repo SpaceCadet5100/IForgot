@@ -13,6 +13,7 @@ struct IForgotApp: App {
         WindowGroup {
             //check if spashscreen was presented if not display it
             ContentView()
+                .environmentObject(Storage())
         }
     }
 }

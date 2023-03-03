@@ -9,14 +9,13 @@ import SwiftUI
 
 struct NasaList: View {
     
-    @State var data = nasaDatas
-
+    @EnvironmentObject var nasaData: Storage
     var body: some View {
         
         
         NavigationView{
             List {
-                ForEach(nasaDatas,
+                ForEach(nasaData.nasaList,
                         id: \NasaAPIModel.date) {
                     nasaData in
                     NavigationLink(
@@ -26,9 +25,20 @@ struct NasaList: View {
                         Text(nasaData.date)
                     }
                 }
+                      //  .onMove { from, to in
+                       //     nasaData.nasaList.move(fromOffsets: from, toOffset: to)
+
+                      //  }
+                        .onDelete { indexSet in
+                            nasaData.nasaList.remove(atOffsets: indexSet)
+
+                }
+            }.toolbar {
+                       //    EditButton()
             }
             .overlay(Group {
-                           if nasaDatas.isEmpty {
+                if nasaData.nasaList.isEmpty {
+
                                SplashView()
                            }
                        })
@@ -39,7 +49,12 @@ struct NasaList: View {
 }
 
 struct NasaList_Previews: PreviewProvider {
+    static var storage = Storage()
+
     static var previews: some View {
+        //let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
+    
         NasaList()
+            .environmentObject(storage)
     }
 }

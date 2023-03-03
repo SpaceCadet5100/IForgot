@@ -8,16 +8,16 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
- 
-    
     @State var response: NasaAPIModel?
+    //@State var nasaData = nasaDatas
+    @EnvironmentObject var nasaData: Storage
     
     var body: some View {
-        self.saveResponse()
         return VStack{
             NasaList().onAppear{
-                LoadData()
+                
+                tryLoadDataForToday()
+                
             }
             
             HStack{
@@ -51,15 +51,37 @@ struct ContentView: View {
         }
     }
 
+    func tryLoadDataForToday(){
+        //check if todays date exist
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: date)
+        
+        let hasTodaysData = nasaData.nasaList.contains (where: { $0.id == dateString })
+        
+        if (!hasTodaysData){
+            LoadData(todaysDate: true)
+        }
+    }
+    
     func saveResponse() {
         if let response = response {
-            nasaDatas.append(response)
+            nasaData.nasaList.append(response)
         }
         return
     }
+    
+    
 
-    func LoadData(todaysDate: Date? = nil) {
-        guard let url = URL (string: "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=1") else {
+
+    func LoadData(todaysDate: Bool? = false) {
+        
+        let todaysDateUnwrapped = todaysDate ?? false
+        
+        let apiString = (todaysDateUnwrapped) ? "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao" : "https://api.nasa.gov/planetary/apod?api_key=itcCI2jHfrVY3pbsghGsaSzPIhsgpvsuM5pcdBao&count=1"
+        
+        guard let url = URL (string: apiString) else {
             print("Invalid url")
             return
         }
@@ -117,7 +139,7 @@ struct ContentView: View {
             DispatchQueue.main.async {
                 //self.results.append(newNasaData ?? default value)
                 self.response = newNasaData
-                
+                self.saveResponse()
                 
             }
         }
@@ -129,10 +151,14 @@ struct ContentView: View {
 
 
 struct ContentView_Previews: PreviewProvider {
+    
+    static var storage = Storage()
+    
     static var previews: some View {
-
-
+        
+        
         ContentView()
+            .environmentObject(storage)
 
     }
 }
