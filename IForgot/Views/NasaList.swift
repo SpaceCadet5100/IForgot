@@ -38,7 +38,7 @@ struct NasaList: View {
             }
             .overlay(Group {
                            if nasaDatas.isEmpty {
-                               
+
                                SplashView()
                            }
                        })
