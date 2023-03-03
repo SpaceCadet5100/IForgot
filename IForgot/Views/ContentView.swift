@@ -11,11 +11,9 @@ struct ContentView: View {
     @State var response: NasaAPIModel?
     @State var nasaData = nasaDatas
     var body: some View {
-        self.saveResponse()
         return VStack{
             NasaList(nasaDatas: $nasaData).onAppear{
                 tryLoadDataForToday()
-            
                 UserDefaults.standard.set(nasaDatas, forKey: "nasa")
             }
             
@@ -138,7 +136,7 @@ struct ContentView: View {
             DispatchQueue.main.async {
                 //self.results.append(newNasaData ?? default value)
                 self.response = newNasaData
-                
+                self.saveResponse()
                 
             }
         }
