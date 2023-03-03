@@ -12,12 +12,14 @@ struct SplashView: View {
     
     var body: some View {
         VStack {
-    
+            // A text element that displays a loading message.
             Text("loading our application")
+            // An image element that displays a loading image.
             Image("loading")
                 .imageScale(.small)
                 .foregroundColor(.accentColor)
                 .rotationEffect(.degrees(isRotating))
+            // A SwiftUI animation that continuously rotates the image.
                             .onAppear {
                                 withAnimation(.linear(duration: 1)
                                         .speed(0.1).repeatForever(autoreverses: false)) {

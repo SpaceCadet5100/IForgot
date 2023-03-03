@@ -12,7 +12,6 @@ struct NasaList: View {
     @EnvironmentObject var nasaData: Storage
     var body: some View {
         
-        
         NavigationView{
             List {
                 ForEach(nasaData.nasaList,

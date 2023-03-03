@@ -5,7 +5,7 @@
 //  Created by Marijn van den Bos on 15/02/2023.
 //
 import SwiftUI
-
+import UserNotifications
 
 struct ContentView: View {
     @State var response: NasaAPIModel?
