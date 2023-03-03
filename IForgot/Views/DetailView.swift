@@ -5,7 +5,6 @@
 //  Created by Marijn van den Bos on 15/02/2023.
 //
 
-
 import SwiftUI
 import MapKit
 import WrappingHStack
@@ -31,7 +30,7 @@ struct DetailView: View {
                 Text(nasaAPIModel.explanation)
                     .font(.system(size: 16))
                     .padding(3)
-                    .fixedSize(horizontal: false, vertical: true) 
+                    .fixedSize(horizontal: false, vertical: true)
                 Text("This picture was taken on: \(nasaAPIModel.date)")
                     .font(.system(size: 16))
                   
