@@ -11,7 +11,7 @@ class Storage: ObservableObject {
     
     private let datakey = "appdata"
     
-    @Published var nasaList = [NasaAPIModel]()
+    @Published var nasaList: [NasaAPIModel] = []
     
     init()
     {
@@ -29,20 +29,21 @@ class Storage: ObservableObject {
             catch {
                 print(error.localizedDescription)
             }
+  
         }
         
     }
     
     func saveData(incomingData: [NasaAPIModel])
     {
-        if UserDefaults.standard.data(forKey: datakey) != nil{
             do {
                 let data = try JSONEncoder().encode(incomingData)
                 UserDefaults.standard.set(data, forKey: datakey)
             }
             catch {
                 print(error.localizedDescription)
-            }
+
+            
         }
     }
 }

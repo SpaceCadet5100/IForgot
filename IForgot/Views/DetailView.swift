@@ -10,12 +10,9 @@ import MapKit
 import WrappingHStack
 struct DetailView: View {
     @State var nasaAPIModel:NasaAPIModel
-    
     @EnvironmentObject var nasaData: Storage
-
     
     @State private var isPresentingEditView = false
-    
     var body: some View {
         ScrollView {
             VStack{
@@ -43,14 +40,10 @@ struct DetailView: View {
                     Button("Edit") {
                         isPresentingEditView = true
                         
-                        
                     }
 
                  }
                 .sheet(isPresented: $isPresentingEditView) {
-                    
-                    
-                    
                     
                     NavigationView {
                         
@@ -80,6 +73,7 @@ struct DetailView: View {
                                         if let unwrappedIndex = index {
                                             nasaData.nasaList.remove(at: unwrappedIndex)
                                             nasaData.nasaList.insert(nasaAPIModel, at: unwrappedIndex)
+                                            nasaData.saveData(incomingData: nasaData.nasaList)
                                         }
                                    
                                     }
@@ -94,11 +88,14 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
+    static var storage = Storage()
+
     static var previews: some View {
 
         let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
         //DetailView(nasaAPIModel: .constant(thingToPreview))
         DetailView(nasaAPIModel: thingToPreview)
+            .environmentObject(storage)
 
     }
 }
