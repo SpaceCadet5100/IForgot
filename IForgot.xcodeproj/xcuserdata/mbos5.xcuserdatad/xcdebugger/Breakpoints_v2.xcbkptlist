@@ -129,7 +129,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82bbe"
+                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82a00"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -139,12 +139,12 @@
                   urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/ContentView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
                   offsetFromSymbolStart = "36">
                </Location>
                <Location
-                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82bbe"
+                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82a00"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -154,8 +154,8 @@
                   urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/ContentView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
+                  startingLineNumber = "66"
+                  endingLineNumber = "66"
                   offsetFromSymbolStart = "64">
                </Location>
             </Locations>
@@ -173,15 +173,15 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "previews"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "134F875A-BFEB-4702-BBF4-F7027E3515E1"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IForgot/Views/ContentView.swift"

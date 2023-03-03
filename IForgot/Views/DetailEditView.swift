@@ -16,8 +16,8 @@ struct DetailEditView: View {
             
             
             Section(header: Text("Title")) {
-                
                 TextField("Title", text: $nasaAPIModel.title)
+                TextField("explanation", text: $nasaAPIModel.explanation)
                 
             }
             

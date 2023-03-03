@@ -20,7 +20,7 @@ struct SplashView: View {
                     } else if let error = error {
                         print(error.localizedDescription)
                     }
-                }                }
+                }          }
     
             Text("loading our application")
             Image("loading")
