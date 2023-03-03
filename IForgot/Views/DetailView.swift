@@ -97,7 +97,6 @@ struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
 
         let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
-        //DetailView(nasaAPIModel: .constant(thingToPreview))
         DetailView(nasaAPIModel: thingToPreview)
 
     }
