@@ -29,19 +29,19 @@ struct ContentView: View {
                 }
                 .buttonStyle(.bordered)
                 
-             
                 
-               
+                
+                
                 Button("Settings") {
                     showingSheet.toggle()
                 }.buttonStyle(.bordered)
                     .sheet(isPresented: $showingSheet) {
-                                settingsView()
-                            }
+                        settingsView()
+                    }
             }
         }
     }
-
+    
     func tryLoadDataForToday(){
         //check if todays date exist
         let date = Date()
@@ -54,7 +54,7 @@ struct ContentView: View {
         if (!hasTodaysData){
             LoadData(todaysDate: true)
             nasaData.saveData(incomingData: nasaData.nasaList)
-
+            
         }
     }
     
@@ -64,13 +64,13 @@ struct ContentView: View {
             nasaData.saveData(incomingData: nasaData.nasaList)
         }
         nasaData.saveData(incomingData: nasaData.nasaList)
-
+        
         return
     }
     
     
-
-
+    
+    
     func LoadData(todaysDate: Bool? = false) {
         
         let todaysDateUnwrapped = todaysDate ?? false
@@ -81,12 +81,12 @@ struct ContentView: View {
             print("Invalid url")
             return
         }
-
+        
         let request = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: request)
         {
             data, response, error in
-
+            
             if let error = error {
                 print("Error: fetch failed: \(error.localizedDescription)")
                 return
@@ -105,16 +105,16 @@ struct ContentView: View {
             if let i = data.lastIndex(of: 93) {
                 data.remove(at: i)
             }
-
+            
             var newNasaData: NasaAPIModel?
             do {
                 newNasaData = try JSONDecoder().decode(NasaAPIModel.self, from: data)
             }
-
+            
             catch let error as NSError{
                 print("Error: \(error.domain), description= \(error.localizedDescription)")
             }
-
+            
             catch DecodingError.keyNotFound(let key, let context){
                 print("Error: could not find key \(key) in JSON \(context.debugDescription)")
             }
@@ -140,10 +140,10 @@ struct ContentView: View {
                 
             }
         }
-
+        
         task.resume()
-
-        }
+        
+    }
 }
 
 
@@ -156,6 +156,6 @@ struct ContentView_Previews: PreviewProvider {
         
         ContentView()
             .environmentObject(storage)
-
+        
     }
 }

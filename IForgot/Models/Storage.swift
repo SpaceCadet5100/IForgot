@@ -29,20 +29,20 @@ class Storage: ObservableObject {
             catch {
                 print(error.localizedDescription)
             }
-  
+            
         }
         
     }
     
     func saveData(incomingData: [NasaAPIModel])
     {
-            do {
-                let data = try JSONEncoder().encode(incomingData)
-                UserDefaults.standard.set(data, forKey: datakey)
-            }
-            catch {
-                print(error.localizedDescription)
-
+        do {
+            let data = try JSONEncoder().encode(incomingData)
+            UserDefaults.standard.set(data, forKey: datakey)
+        }
+        catch {
+            print(error.localizedDescription)
+            
             
         }
     }

@@ -24,34 +24,34 @@ struct NasaList: View {
                         Text(nasaData.date)
                     }
                 }
-                      //  .onMove { from, to in
-                       //     nasaData.nasaList.move(fromOffsets: from, toOffset: to)
-
-                      //  }
+                //  .onMove { from, to in
+                //     nasaData.nasaList.move(fromOffsets: from, toOffset: to)
+                
+                //  }
                         .onDelete { indexSet in
                             nasaData.nasaList.remove(atOffsets: indexSet)
                             nasaData.saveData(incomingData: nasaData.nasaList)
-
-                }
+                            
+                        }
             }
             .overlay(Group {
                 if nasaData.nasaList.isEmpty {
-
-                               SplashView()
-                           }
-                       })
+                    
+                    SplashView()
+                }
+            })
             .navigationTitle("Entries")
         }
-       
+        
     }
 }
 
 struct NasaList_Previews: PreviewProvider {
     static var storage = Storage()
-
+    
     static var previews: some View {
         //let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
-    
+        
         NasaList()
             .environmentObject(storage)
     }

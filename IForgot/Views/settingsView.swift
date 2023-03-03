@@ -21,9 +21,9 @@ struct settingsView: View {
             }   .buttonStyle(.borderedProminent)
             Button("Set Reminder") {
                 sendNotification()
-                          }
+            }
             .buttonStyle(.bordered)
-                          .buttonStyle(.bordered)
+            .buttonStyle(.bordered)
             Button("Notification permission") {
                 UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
@@ -50,7 +50,7 @@ struct settingsView: View {
         
         // add our notification request
         UNUserNotificationCenter.current().add(request)
-    
+        
     }
 }
 
