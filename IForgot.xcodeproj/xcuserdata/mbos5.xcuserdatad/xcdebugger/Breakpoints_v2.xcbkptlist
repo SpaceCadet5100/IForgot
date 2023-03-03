@@ -36,11 +36,11 @@
             landmarkType = "14">
             <Locations>
                <Location
-                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - a26f9b30266b17a8"
+                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - 68a0d343498f5fdb"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "IForgot.NasaList.nasaDatas.getter : Swift.Array&lt;IForgot.NasaAPIModel&gt;"
+                  symbolName = "IForgot.NasaList.nasaData.getter : IForgot.Storage"
                   moduleName = "IForgot"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/NasaList.swift"
@@ -48,14 +48,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
                   endingLineNumber = "12"
-                  offsetFromSymbolStart = "156">
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - 5af0ee36fd38a83c"
+                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - 8b725b8b31eb97a5"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "IForgot.NasaList.nasaDatas.setter : Swift.Array&lt;IForgot.NasaAPIModel&gt;"
+                  symbolName = "IForgot.NasaList.$nasaData.getter : SwiftUI.EnvironmentObject&lt;IForgot.Storage&gt;.Wrapper"
                   moduleName = "IForgot"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/NasaList.swift"
@@ -63,14 +63,14 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
                   endingLineNumber = "12"
-                  offsetFromSymbolStart = "176">
+                  offsetFromSymbolStart = "88">
                </Location>
                <Location
-                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - dcd45b485b5ae30b"
+                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - a20cfb2831f899b8"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "IForgot.NasaList.nasaDatas.modify : Swift.Array&lt;IForgot.NasaAPIModel&gt;"
+                  symbolName = "IForgot.NasaList.init() -&gt; IForgot.NasaList"
                   moduleName = "IForgot"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/NasaList.swift"
@@ -78,37 +78,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "12"
                   endingLineNumber = "12"
-                  offsetFromSymbolStart = "0">
-               </Location>
-               <Location
-                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - 265540efe6fb7130"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IForgot.NasaList.nasaDatas.modify : Swift.Array&lt;IForgot.NasaAPIModel&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "IForgot"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/NasaList.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "40">
-               </Location>
-               <Location
-                  uuid = "DBEAFB29-5463-49F7-B158-095362681D65 - 55d0cf94b90f6ec4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IForgot.NasaList.$nasaDatas.getter : SwiftUI.Binding&lt;Swift.Array&lt;IForgot.NasaAPIModel&gt;&gt;"
-                  moduleName = "IForgot"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/NasaList.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "12"
-                  endingLineNumber = "12"
-                  offsetFromSymbolStart = "172">
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -125,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "66"
             endingLineNumber = "66"
-            landmarkName = "saveResponse()"
+            landmarkName = "tryLoadDataForToday()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -189,8 +159,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
             endingLineNumber = "67"
-            landmarkName = "saveResponse()"
-            landmarkType = "7">
+            landmarkName = "ContentView"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -213,7 +183,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F1FA8DF6-9D24-4212-AF27-47ACBA5822AB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IForgot/Views/NasaList.swift"
@@ -221,6 +191,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74F31680-94E8-45F1-BBAC-FBA932DA84CF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IForgot/Views/NasaList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

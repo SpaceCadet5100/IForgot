@@ -9,18 +9,20 @@ import SwiftUI
 
 struct DetailEditView: View {
     @Binding var  nasaAPIModel:NasaAPIModel
-
+    @State var date = Date()
     
     var body: some View {
         Form {
-            
-            
             Section(header: Text("Title")) {
                 TextField("Title", text: $nasaAPIModel.title)
-                TextField("explanation", text: $nasaAPIModel.explanation)
-                
-            }
-            
+            }.padding(.horizontal, 16)
+            Section(header: Text("explanation")) {
+                TextField("explanation", text: $nasaAPIModel.explanation)}.padding(.horizontal, 16)
+            Section(header: Text("Date")) {
+                                DatePicker("Pick a Date", selection: $date,displayedComponents: .date)
+                            }.padding(.horizontal, 16)
+           
+         
         }
 
     }
