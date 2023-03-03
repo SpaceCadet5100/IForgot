@@ -31,10 +31,9 @@ struct NasaList: View {
                       //  }
                         .onDelete { indexSet in
                             nasaData.nasaList.remove(atOffsets: indexSet)
+                            nasaData.saveData(incomingData: nasaData.nasaList)
 
                 }
-            }.toolbar {
-                       //    EditButton()
             }
             .overlay(Group {
                 if nasaData.nasaList.isEmpty {

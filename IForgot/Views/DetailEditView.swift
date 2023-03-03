@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct DetailEditView: View {
-    @Binding var  nasaAPIModel:NasaAPIModel
-
+    @Binding var nasaAPIModel:NasaAPIModel
+    
     
     var body: some View {
         Form {
+
                     Section(header: Text("Title")) {
                         TextField("Title", text: $nasaAPIModel.title)
                     }.padding(.horizontal, 16)

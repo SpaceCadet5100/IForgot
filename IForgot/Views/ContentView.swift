@@ -53,13 +53,18 @@ struct ContentView: View {
         
         if (!hasTodaysData){
             LoadData(todaysDate: true)
+            nasaData.saveData(incomingData: nasaData.nasaList)
+
         }
     }
     
     func saveResponse() {
         if let response = response {
             nasaData.nasaList.append(response)
+            nasaData.saveData(incomingData: nasaData.nasaList)
         }
+        nasaData.saveData(incomingData: nasaData.nasaList)
+
         return
     }
     
@@ -131,6 +136,7 @@ struct ContentView: View {
                 //self.results.append(newNasaData ?? default value)
                 self.response = newNasaData
                 self.saveResponse()
+                
                 
             }
         }
