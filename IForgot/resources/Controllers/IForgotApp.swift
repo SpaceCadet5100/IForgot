@@ -11,8 +11,9 @@ import SwiftUI
 struct IForgotApp: App {
     var body: some Scene {
         WindowGroup {
-            //check if spashscreen was presented if not display it 
-            SplashView()
+            //check if spashscreen was presented if not display it
+            ContentView()
+                .environmentObject(Storage())
         }
     }
 }
