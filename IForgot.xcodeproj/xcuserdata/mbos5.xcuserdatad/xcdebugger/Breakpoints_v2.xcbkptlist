@@ -14,8 +14,8 @@
             filePath = "IForgot/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "LoadData(todaysDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -123,42 +123,10 @@
             filePath = "IForgot/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "saveResponse()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "tryLoadDataForToday()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82a00"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IForgot.ContentView.saveResponse() -&gt; ()"
-                  moduleName = "IForgot"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "B79BEA73-13A7-4B8C-B436-345B5314F3F1 - 6910475d3f82a00"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "IForgot.ContentView.saveResponse() -&gt; ()"
-                  moduleName = "IForgot"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mbos5/Documents/GitHub/IForgot/IForgot/Views/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -171,9 +139,9 @@
             filePath = "IForgot/Views/NasaList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "previews"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
@@ -187,9 +155,9 @@
             filePath = "IForgot/Views/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "saveResponse()"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "tryLoadDataForToday()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -213,7 +181,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F1FA8DF6-9D24-4212-AF27-47ACBA5822AB"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IForgot/Views/NasaList.swift"
@@ -221,6 +189,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
             endingLineNumber = "25"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "998E0EA1-581F-4A78-B224-C33E50D048B7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IForgot/Views/NasaList.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

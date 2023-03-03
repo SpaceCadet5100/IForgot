@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var response: NasaAPIModel?
-    //@State var nasaData = nasaDatas
+    @State private var showingSheet = false
     @EnvironmentObject var nasaData: Storage
     
     var body: some View {
@@ -29,24 +29,15 @@ struct ContentView: View {
                 }
                 .buttonStyle(.bordered)
                 
+             
                 
-                
-                Button("Set Reminder") {
-                    let content = UNMutableNotificationContent()
-                    content.title = "New daily photo uploaded"
-                    content.subtitle = "Specialy for you in the Iforgetapp \(NSFullUserName())"
-                    content.sound = UNNotificationSound.default
-                    
-                    // show this notification five seconds from now
-                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-                    
-                    // choose a random identifier
-                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-                    
-                    // add our notification request
-                    UNUserNotificationCenter.current().add(request)
-                }
-                .buttonStyle(.bordered)
+               
+                Button("Settings") {
+                    showingSheet.toggle()
+                }.buttonStyle(.bordered)
+                    .sheet(isPresented: $showingSheet) {
+                                settingsView()
+                            }
             }
         }
     }
