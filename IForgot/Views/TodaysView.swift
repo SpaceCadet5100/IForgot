@@ -1,4 +1,5 @@
 //
+//
 //  DetailView.swift
 //  IForgot
 //
@@ -10,13 +11,14 @@ import MapKit
 import WrappingHStack
 import AVFoundation
 
-struct DetailView: View {
-    @State var nasaAPIModel:NasaAPIModel
+struct TodaysView: View {
     @EnvironmentObject var nasaData: Storage
+    @Binding var nasaAPIModel:NasaAPIModel
+
     let speechSynthesizer = AVSpeechSynthesizer()
     
-    @State private var isPresentingEditView = false
     var body: some View {
+        NavigationView{
         ScrollView {
             VStack{
                 Button("read the text out loud"){
@@ -57,65 +59,24 @@ struct DetailView: View {
                     .font(.system(size: 16))
                 
             }.frame(maxWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height + 500) }
-        .navigationTitle(nasaAPIModel.title)
+        //.navigationTitle(nasaAPIModel.title, displayMode: .inline)
+        .navigationTitle("Today's Image")
         .toolbar {
-            Button("Edit") {
-                isPresentingEditView = true
-                
+            NavigationLink(destination: NasaList()) {
+                Text("Favorites")
             }
-            
+           
         }
-        .sheet(isPresented: $isPresentingEditView) {
-            
-      
-                
-                DetailEditView(nasaAPIModel: $nasaAPIModel)
-                
-                    .navigationTitle("Edit")
-                
-                    .toolbar {
-                        
-                        ToolbarItem(placement: .cancellationAction) {
-                            
-                            Button("Cancel") {
-                                
-                                isPresentingEditView = false
-                                
-                            }
-                            
-                        }
-                        
-                        ToolbarItem(placement: .confirmationAction) {
-                            
-                            Button("Done") {
-                                
-                                isPresentingEditView = false
-                                let index = nasaData.nasaList.firstIndex(where: {$0.id == nasaAPIModel.id})
-                                
-                                if let unwrappedIndex = index {
-                                    nasaData.nasaList.remove(at: unwrappedIndex)
-                                    nasaData.nasaList.insert(nasaAPIModel, at: unwrappedIndex)
-                                    nasaData.saveData(incomingData: nasaData.nasaList)
-                                }
-                                
-                            
-                            
-                        }
-                        
-                    }
-            }
         }
-        
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
+struct TodaysView_Previews: PreviewProvider {
     static var storage = Storage()
     
     static var previews: some View {
-        
         let thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
-        DetailView(nasaAPIModel: thingToPreview)
+        TodaysView(nasaAPIModel: .constant(thingToPreview))
             .environmentObject(storage)
         
     }

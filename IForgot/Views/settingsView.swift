@@ -12,27 +12,21 @@ struct settingsView: View {
     @State private var reminder = false
     
     var body: some View {
-        VStack{
-            Spacer()
-            Text("settings page").font(.largeTitle)
-            Spacer()
-            Button("Return") {
-                dismiss()
-            }   .buttonStyle(.borderedProminent)
-            Button("Set Reminder") {
-                sendNotification()
-            }
-            .buttonStyle(.bordered)
-            .buttonStyle(.bordered)
-            Button("Notification permission") {
-                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                        print("All set!")
-                    } else if let error = error {
-                        print(error.localizedDescription)
+        NavigationView{
+            Form{
+                Button("Set Reminder") {
+                    sendNotification()
+                }
+                Button("Grant notification permission") {
+                    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                        if success {
+                            print("All set!")
+                        } else if let error = error {
+                            print(error.localizedDescription)
+                        }
                     }
                 }
-            }.buttonStyle(.bordered)
+            }.navigationTitle("Settings")
         }
     }
     

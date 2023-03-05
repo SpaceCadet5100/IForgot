@@ -16,6 +16,7 @@
 		89C2425A29893419009BCB3D /* IForgotUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2425929893419009BCB3D /* IForgotUITests.swift */; };
 		89C2425C29893419009BCB3D /* IForgotUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C2425B29893419009BCB3D /* IForgotUITestsLaunchTests.swift */; };
 		89D3B6A929B11D37005D5EBD /* DetailEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D3B6A829B11D37005D5EBD /* DetailEditView.swift */; };
+		B279650829B4576300F185C1 /* TodaysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B279650729B4576300F185C1 /* TodaysView.swift */; };
 		BC27BA8129B23347004773CE /* settingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC27BA8029B23347004773CE /* settingsView.swift */; };
 		BC88FEE8299CD8850045E337 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88FEE7299CD8850045E337 /* DetailView.swift */; };
 		BC88FEF1299CE5D60045E337 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC88FEF0299CE5D60045E337 /* ContentView.swift */; };
@@ -54,6 +55,7 @@
 		89C2425929893419009BCB3D /* IForgotUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IForgotUITests.swift; sourceTree = "<group>"; };
 		89C2425B29893419009BCB3D /* IForgotUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IForgotUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		89D3B6A829B11D37005D5EBD /* DetailEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEditView.swift; sourceTree = "<group>"; };
+		B279650729B4576300F185C1 /* TodaysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysView.swift; sourceTree = "<group>"; };
 		BC27BA8029B23347004773CE /* settingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsView.swift; sourceTree = "<group>"; };
 		BC88FEE7299CD8850045E337 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		BC88FEEE299CDED60045E337 /* NasaAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NasaAPIModel.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			children = (
 				89C2424029893418009BCB3D /* SplashView.swift */,
 				BC88FEE7299CD8850045E337 /* DetailView.swift */,
+				B279650729B4576300F185C1 /* TodaysView.swift */,
 				89D3B6A829B11D37005D5EBD /* DetailEditView.swift */,
 				BC88FEF0299CE5D60045E337 /* ContentView.swift */,
 				BCFC26F929AE0F260007D6A3 /* NasaList.swift */,
@@ -323,6 +326,7 @@
 				BC88FEF1299CE5D60045E337 /* ContentView.swift in Sources */,
 				89D3B6A929B11D37005D5EBD /* DetailEditView.swift in Sources */,
 				BCFC26FA29AE0F260007D6A3 /* NasaList.swift in Sources */,
+				B279650829B4576300F185C1 /* TodaysView.swift in Sources */,
 				BC88FEE8299CD8850045E337 /* DetailView.swift in Sources */,
 				894C3CCA29B20F5B00A4D999 /* Storage.swift in Sources */,
 				89C2423F29893418009BCB3D /* IForgotApp.swift in Sources */,

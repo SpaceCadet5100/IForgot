@@ -11,11 +11,14 @@ struct ContentView: View {
     @State var response: NasaAPIModel?
     @State private var showingSheet = false
     @EnvironmentObject var nasaData: Storage
+    @State var thingToPreview = NasaAPIModel(date: "", explanation: "", hdurl: "", mediaType: "", serviceVersion: "", title: "", url: "")
+
+    
     
     var body: some View {
         return VStack{
-            NasaList().onAppear{
-                
+            //NasaList().onAppear{
+            TodaysView(nasaAPIModel: $thingToPreview).onAppear{
                 tryLoadDataForToday()
                 
             }
@@ -51,6 +54,8 @@ struct ContentView: View {
         
         let hasTodaysData = nasaData.nasaList.contains (where: { $0.id == dateString })
         
+        thingToPreview = nasaData.nasaList.first(where: { $0.id == dateString }) ?? thingToPreview
+        
         if (!hasTodaysData){
             LoadData(todaysDate: true)
             nasaData.saveData(incomingData: nasaData.nasaList)
@@ -60,10 +65,11 @@ struct ContentView: View {
     
     func saveResponse() {
         if let response = response {
-            nasaData.nasaList.append(response)
-            nasaData.saveData(incomingData: nasaData.nasaList)
+            //nasaData.nasaList.append(response)
+            thingToPreview = response
+            //nasaData.saveData(incomingData: nasaData.nasaList)
         }
-        nasaData.saveData(incomingData: nasaData.nasaList)
+        //nasaData.saveData(incomingData: nasaData.nasaList)
         
         return
     }

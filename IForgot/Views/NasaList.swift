@@ -12,7 +12,7 @@ struct NasaList: View {
     @EnvironmentObject var nasaData: Storage
     var body: some View {
         
-        NavigationView{
+     
             List {
                 ForEach(nasaData.nasaList,
                         id: \NasaAPIModel.date) {
@@ -37,11 +37,13 @@ struct NasaList: View {
             .overlay(Group {
                 if nasaData.nasaList.isEmpty {
                     
+                    
+                    
                     SplashView()
                 }
             })
-            .navigationTitle("Entries")
-        }
+            .navigationTitle("Favorites")
+        
         
     }
 }
